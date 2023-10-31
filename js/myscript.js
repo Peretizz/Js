@@ -6,7 +6,7 @@ function mudarFrase() {
     elemento.style.backgroundColor = "yellow";
     //altera o fundo da página
     document.body.style.backgroundColor = "blue";
-    elemento.innerHTML = "<img src=\'img/a.jpeg\' />"
+    elemento.innerHTML = "<img src= img/calleri.jpg>"
 }
 
 function gebi(id){
