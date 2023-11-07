@@ -27,22 +27,9 @@
                 alert("total = " + total)
             }
            
-            function validar(){
+            function validar() {
 				var email = gebi("idEmail").value; 
 				var senha = gebi("idSenha").value;
-
-                if(email.length < 5) {
-                    alert("Email está errado!")
-                    return
-                }
-
-                if(senha.length < 3) {
-                    alert("Senha deve ser maior que 3!")
-                    return
-                }
-
-                gebi("meuForm").submit()
-                alert("Sucesso!")
 			}
 			function maiuscula(){
 				var email = gebi("idEmail").value;
