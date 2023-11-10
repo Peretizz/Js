@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+<body>
+    
+    <form id="Formulário">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required> <br>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" required> <br>
+
+        <label for="peso">Peso:</label>
+        <input type="number" name="peso" id="peso" required> <br>
+
+        <label for="altura">Altura:</label>
+        <input type="number" name="altura" id="altura" required> <br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required> <br>
+
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha" required> <br>
+
+        <input type="submit" value="enviar">
+    </form>
+
+    <script>
+        document.getElementById("Formulário").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var nome = document.getElementById("nome").value;
+            var idade = parseInt(document.getElementById("idade").value);
+            var peso = parseInt(document.getElementById("peso").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+            var senha = document.getElementById("senha").value;
+            var email = document.getElementById("email").value;
+
+            if(idade >= 10 && peso > 40 && peso < 150 && altura > 1.4 && (senha === "1234" || senha === "4321") && email === "nada@nada.com" && nome === "fulano") {
+                alert("Formulário enviado com sucesso!");
+            } else {
+                alert("Verifique os dados inseridos e tente novamente.");
+            }
+        });
+    </script>
+
+</body>
+</html>
