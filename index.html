@@ -1,8 +1,9 @@
 <html>
     <head>
         <title>Javascript 01</title>
+        <script src="js/myscript.js" type="text/javascript"></script>
+        <link href="css/style.css">
         <script>
-            //exibe uma janela
             alert("olá galera!")
 
             function trocarTexto(){
@@ -10,17 +11,16 @@
                 var elementoNovo = document.getElementById("novaFrase").value
                 elemento.innerHTML = elementoNovo
             }
-
-        </script>
+        </script>     
     </head>
     <body>
         <h1 ondblclick="mudarFrase()" id="frase">Olá Mundo!</h1>
         <input id="novaFrase" type="text"><br>
-        <input id="botao" type="button" 
-            value="Trocar Frase" 
-            onclick="trocarTexto();"><br>
-        <a href="calculadora.html">Vai para Calculadora</a> <br>
-        <a href="validar.html">Vai para Validação</a> <br>
-        <a href="formulario.html"> Vai para o Formulário </a>
+        <input id="botao" type="button" 
+            value="Trocar Frase" 
+            onclick="trocarTexto();"><br>
+        <a href="calculadora.html">Vai para Calculadora</a><br>
+        <a href="validar.html">Vai para Validar</a><br>
+        <a href="validar2.html">Vai para Validar2</a><br>
     </body>
 </html>
