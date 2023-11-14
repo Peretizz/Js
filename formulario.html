@@ -1,52 +1,95 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
-</head>
-<body>
-    
-    <form id="Formulário">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required> <br>
+<html lang="en">
 
-        <label for="idade">Idade:</label>
-        <input type="number" id="idade" name="idade" required> <br>
+    <head>
+        <title>Formulário com Condições de Envio</title>
+        <script src="js/myscript.js" type="text/javascript"></script>
+        <script>
+            function validar() {
+                var nome = gebi("idNome").value;
+                var email = gebi("idEmail").value;
+                var peso = gebi("idPeso").value;
+                var idade = gebi("idIdade").value;
+                var altura = gebi("idAltura").value;
+                var senha = gebi("idSenha").value;
 
-        <label for="peso">Peso:</label>
-        <input type="number" name="peso" id="peso" required step="0.1"> <br>
+                if ((nome != "fulano")) {
+                    alert("Nome deve ser igual a fulano!");
+                    gebi("idNome").focus();
+                    return;
+                }
 
-        <label for="altura">Altura:</label>
-        <input type="number" name="altura" id="altura" required step="0.1"> <br>
+                if ((email != "nada@nada.com")) {
+                    alert("E-mail deve ser igual a nada@nada.com!");
+                    gebi("idEmail").focus();
+                    return;
+                }          
+                
+                if (idade < 10) {
+                    alert("Idade deve ser maior que 9!");
+                    gebi("idIdade").focus();
+                    return;
+                }
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required> <br>
+                if ( (peso < 40) || (peso > 150) ) {
+                    alert("Peso deve ser maior que 40 e menor que 150!");
+                    gebi("idPeso").focus();
+                    return;
+                }          
 
-        <label for="senha">Senha:</label>
-        <input type="password" name="senha" id="senha" required> <br>
+                if (altura < 1.40) {
+                    alert("Altura deve ser maior que 1.40!");
+                    gebi("idAltura").focus();
+                    return;
+                }
 
-        <input type="submit" value="enviar">
-    </form>
+                if ( (senha != 1234) && (senha != 4321)   ) {
+                    alert("Senha deve ser igual a 1234 ou 4321!");
+                    gebi("idSenha").focus();
+                    return;
+                }                
 
-    <script>
-        document.getElementById("Formulário").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            var nome = document.getElementById("nome").value;
-            var idade = parseInt(document.getElementById("idade").value);
-            var peso = parseInt(document.getElementById("peso").value);
-            var altura = parseFloat(document.getElementById("altura").value);
-            var senha = document.getElementById("senha").value;
-            var email = document.getElementById("email").value;
-
-            if(idade >= 10 && peso > 40 && peso < 150 && altura > 1.40 && (senha === "1234" || senha === "4321") && email === "nada@nada.com" && nome === "fulano") {
-                alert("Formulário enviado com sucesso!");
-            } else {
-                alert("Verifique os dados inseridos e tente novamente.");
+                alert("Sucesso!")
+                gebi("meuForm").submit()
             }
-        });
-    </script>
+        </script>
+    </head>
 
-</body>
+    <body>
+        <h2>Formulário 02</h2>
+        <form id="meuForm" 
+            action="http://jkorpela.fi/cgi-bin/echo.cgi" 
+            method="post">
+
+            Nome:
+            <input type="text" id="idNome" name="nome" 
+                required autofocus value="fulano">
+            <br>
+
+            E-mail:
+            <input type="email" id="idEmail" name="email" required 
+                placeholder="nada@nada.com">
+            <br>
+
+            Idade:
+            <input type="number" id="idIdade" name="idade" required>
+            <br>
+
+            Peso:
+            <input type="number" id="idPeso" name="peso" required min="41" step="0.1">
+            <br>
+
+            Altura
+            <input type="number" id="idAltura" name="altura" step="0.01" required>
+            <br>
+
+            Senha:
+            <input type="password" id="idSenha" name="senha" required>
+            <br>
+
+            <input type="button" value="Enviar" onclick="validar()">
+        </form>
+
+    </body>
+
 </html>
